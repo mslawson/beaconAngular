@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="jobcostApp"  ng-controller="JobListCtrl">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="js/controllers.js"></script>
+	<title ng-bind-template="Beacon Jobs: {{query}}">Beacon Jobs</title>
+</head>
+<body>
+
+	<div>
+		<h2>Beacon Contracting</h2>
+		<h4>Job Costing</h4>
+		<div class="containter-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					<!-- Body Content -->
+					<ul id="triple">
+						<li ng-repeat="job in jobs | filter:query | orderBy:orderProp">
+							<p>Job Name: <strong>{{job.jobName}}</strong></p>
+							<p>File Number: {{job.fileNumber}}</p>
+							<p>Invoice Date: {{job.billingDate}}</p>
+							<br>
+						</li>
+					</ul>
+					<div>
+						
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<!-- Sidebar Content -->
+					Search: <input ng-model="query">
+					<br>
+					Sort by:
+					<select ng-model="orderProp">
+						<option value="jobName">Job Name</option>
+						<option value="billingDate">Billing Date</option>
+					</select>
+					<br>
+					<br>
+					<p>Order Index: {{orderProp}}</p>
+					<h5>Average Production Rate:</h5>
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
+	<!-- <div class="repeater">
+		<table>
+			<tr><th>row number</th></tr>
+			<tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+		</table>
+	</div> -->
+</body>
+</html>

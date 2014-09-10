@@ -1,0 +1,36 @@
+/* app css stylesheet */
+
+/*General*/
+
+h2{
+	color: darkblue;
+	margin-left: 25px;
+}
+h4{
+	color: darkblue;
+	margin-left: 25px;
+}
+
+
+/*Job Results*/
+
+ul{
+  width:100%;
+
+  margin-bottom:20px;
+  overflow:hidden;
+  border-top:1px solid #ccc;
+  /*border-bottom: 1px solid #ccc;*/
+}
+li{
+  line-height:1.5em;
+  border-bottom:1px solid #ccc;
+  margin: 1%;
+  padding: 1%;
+  float:left;
+  display:inline;
+}
+#double li  { width:46%;} 
+#triple li  { width:30%; } 
+#quad li    { width:22%; } 
+#six li     { width:16.666%; } 

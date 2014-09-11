@@ -45,7 +45,12 @@
 					<p>Order Index: {{orderProp}}</p>
 					<p>Showing {{(jobs|filter:query).length}} Jobs</p>
 					<h5>Summed Total Price:</h5>
-					<p>{{summedTotalPrices((jobs|filter:query))}}</p>
+					<div ng-if="query == null">
+						<p>${{getSumTotalPrice(jobs)}}</p>
+					</div>
+					<div ng-if="query != null">
+						<p>${{getSumTotalPrice((jobs|filter:query))}}</p>	
+					</div>
 				</div>
 
 			</div>

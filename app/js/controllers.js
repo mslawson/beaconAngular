@@ -8,7 +8,7 @@ jobcostApp.controller('JobListCtrl', function ($scope) {
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'totalPrice': '$4,071'},
+	'totalPrice': 4071},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
 	'billingDate': '08/10/2010',
@@ -20,7 +20,7 @@ jobcostApp.controller('JobListCtrl', function ($scope) {
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'totalPrice': '$4,071'},
+	'totalPrice': 4071},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
 	'billingDate': '08/10/2010',
@@ -32,7 +32,7 @@ jobcostApp.controller('JobListCtrl', function ($scope) {
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'totalPrice': '$4,071'},
+	'totalPrice': 4071},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
 	'billingDate': '08/10/2010',
@@ -44,7 +44,7 @@ jobcostApp.controller('JobListCtrl', function ($scope) {
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'totalPrice': '$4,071'},
+	'totalPrice': 4071},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
 	'billingDate': '08/10/2010',
@@ -60,14 +60,13 @@ jobcostApp.controller('JobListCtrl', function ($scope) {
 	];
 	$scope.orderProp = 'jobName';
 
-	$scope.$on(function getAvgTotalPrice(jobs) {
-  // do something
-  	var summedTotalPrices = 0;
+	$scope.getSumTotalPrice = function(jobs){
+		var summedTotalPrices = 0;
 		jobs.forEach(function (job){
 			summedTotalPrices = summedTotalPrices + job.totalPrice;
 		});
 		return jobs.summedTotalPrices = summedTotalPrices;
-	});
+	}
 
 	
 });

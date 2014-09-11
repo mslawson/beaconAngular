@@ -8,46 +8,66 @@ jobcostApp.controller('JobListCtrl', function ($scope) {
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'age': 1},
+	'totalPrice': '$4,071'},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
-	'age': 2},
+	'billingDate': '08/10/2010',
+	'totalPrice': 1},
 	{'jobName': 'BOA Raytown',
 	'fileNumber': '472-11-1816',
-	'age':3},
+	'billingDate': '08/10/2010',
+	'totalPrice':300},
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'age': 4},
+	'totalPrice': '$4,071'},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
-	'age': 5},
+	'billingDate': '08/10/2010',
+	'totalPrice': 5},
 	{'jobName': 'BOA Raytown',
 	'fileNumber': '472-11-1816',
-	'age':6},
+	'billingDate': '08/10/2010',
+	'totalPrice':100},
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'age': 7},
+	'totalPrice': '$4,071'},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
-	'age': 8},
+	'billingDate': '08/10/2010',
+	'totalPrice': 8},
 	{'jobName': 'BOA Raytown',
 	'fileNumber': '472-11-1816',
-	'age':9},
+	'billingDate': '08/10/2010',
+	'totalPrice':200},
 	{'jobName': 'Village at Lionsgate',
 	'fileNumber': '414-10-1600',
 	'billingDate': '08/10/2010',
-	'age': 7},
+	'totalPrice': '$4,071'},
 	{'jobName': 'Creekwood Commons',
 	'fileNumber': '441-10-1633',
-	'age': 8},
+	'billingDate': '08/10/2010',
+	'totalPrice': 8},
 	{'jobName': 'BOA Raytown',
 	'fileNumber': '472-11-1816',
-	'age':9},
+	'billingDate': '08/10/2010',
+	'totalPrice':200},
 	{'jobName': 'Parkhill Offices',
 	'fileNumber': '520-11-2109',
-	'age':10}
+	'billingDate': '08/10/2010',
+	'totalPrice':10}
 	];
 	$scope.orderProp = 'jobName';
+
+	$scope.$on(function getAvgTotalPrice(jobs) {
+  // do something
+  	var summedTotalPrices = 0;
+		jobs.forEach(function (job){
+			summedTotalPrices = summedTotalPrices + job.totalPrice;
+		});
+		return jobs.summedTotalPrices = summedTotalPrices;
+	});
+
+	
 });

@@ -11,18 +11,52 @@ h4{
 	margin-left: 25px;
 }
 
+/*Navigation*/
+
+.main-nav ul{
+	overflow: hidden;
+	background-color: lightblue;
+	width: 100%;
+	/*margin: 2% 0 0 0;*/
+	list-style: none;
+	float: right;
+
+}
+
+.main-nav li{
+	float: left;
+	display: block;
+	margin: 5px 10px;
+	/*padding: 5px 10px;*/
+	/*line-height: 1.5em;*/
+	color:gray;
+	border: 2px solid darkgray;
+	position: inline;
+	border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		text-transform: uppercase;
+}
+
+.main-nav ul li a {
+	color: #faf3bc;
+	padding: 20px 20px;
+	display: block;
+	text-decoration: none;
+	/*margin: 10px;*/
+}
+
 
 /*Job Results*/
 
-ul{
+#job-results ul{
   width:100%;
-
   margin-bottom:20px;
   overflow:hidden;
   border-top:1px solid #ccc;
   /*border-bottom: 1px solid #ccc;*/
 }
-li{
+#job-results li{
   line-height:1.5em;
   border-bottom:1px solid #ccc;
   margin: 1%;

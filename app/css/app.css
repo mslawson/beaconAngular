@@ -2,13 +2,13 @@
 
 /*General*/
 
-h2{
+.title-bar h2{
 	color: darkblue;
-	margin-left: 25px;
+	margin-left: 50px;
 }
-h4{
+.title-bar h4{
 	color: darkblue;
-	margin-left: 25px;
+	margin-left: 50px;
 }
 
 /*Navigation*/
@@ -27,25 +27,34 @@ h4{
 	float: left;
 	display: block;
 	margin: 5px 10px;
-	/*padding: 5px 10px;*/
-	/*line-height: 1.5em;*/
-	color:gray;
+	/*color:gray;*/
+	
+}
+
+.main-nav ul li a {
+	color: darkblue;
+	padding: 20px 20px;
+	display: block;
+	text-decoration: none;
 	border: 2px solid darkgray;
-	position: inline;
 	border-radius: 15px;
 		-webkit-border-radius: 15px;
 		-moz-border-radius: 15px;
 		text-transform: uppercase;
 }
 
-.main-nav ul li a {
-	color: #faf3bc;
+.main-nav a:hover {
+	background-color: gray;
+	color: lightblue;
 	padding: 20px 20px;
 	display: block;
 	text-decoration: none;
-	/*margin: 10px;*/
+	border: 2px solid darkblue;
+	border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		text-transform: uppercase;
 }
-
 
 /*Job Results*/
 

@@ -31,6 +31,15 @@
 	
 }
 
+.main-nav span{
+	float: left;
+	display: block;
+	margin: 5px 10px;
+	text-align: center;
+	/*color:gray;*/
+	
+}
+
 .main-nav ul li a {
 	color: darkblue;
 	padding: 20px 20px;
@@ -43,7 +52,20 @@
 		text-transform: uppercase;
 }
 
-.main-nav a:hover {
+.main-nav span {
+	color: darkblue;
+	padding: 20px 20px;
+	display: block;
+	text-decoration: none;
+	border: 2px solid darkgray;
+	border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		text-transform: uppercase;
+}
+
+
+.main-nav span:hover, a:hover, span.active {
 	background-color: gray;
 	color: lightblue;
 	padding: 20px 20px;

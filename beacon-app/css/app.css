@@ -65,7 +65,7 @@
 }
 
 
-.main-nav span:hover, a:hover, span.active {
+.main-nav span:hover, span.active {
 	background-color: gray;
 	color: lightblue;
 	padding: 20px 20px;

@@ -1,0 +1,82 @@
+<div>
+	<div class="title-bar">
+		<h2>Beacon Contracting</h2>
+		<h4>Job Costing</h4>
+	</div>
+	<div class="main-nav">
+		<ul>
+			<span ng-click="myFilter = null" class="active">All <br> Jobs</span>
+			<span ng-click="myFilter = {jobCode: '40'}">40<br> Slabs</span>
+			<span ng-click="myFilter = {jobCode: '5-50'}">5-50 <br> Curb</span> 
+			<span ng-click="myFilter = {jobCode: '5-60'}">5-60 <br> Sidewalk</span>
+			<span ng-click="myFilter = {jobCode: '5-70'}">5-70 <br> Paving</span>		
+		</ul>
+	</div>
+	<div id="job-results" class="containter-fluid">
+		<div class="row">
+			<div class="col-md-9">
+				<!-- Body Content -->
+				<ul id="triple">
+					<li ng-repeat="job in jobs | filter: myFilter | filter:query | orderBy:orderProp">
+						<a href="#/jobs/{{job.jobName}}"><h5>{{job.jobName}}</h5></a>
+						<p><em>Job Code: {{job.jobCode}}</em></p>
+						<!-- <p>File Number: {{job.fileNumber}}</p> -->
+						<p>Invoice Date: {{job.billingDate}}</p>
+						<p>Total Price: ${{job.totalPrice}}</p>
+						<p>Budget Hours: {{job.budgetHrs}} hrs</p>
+						<p>Budget Units: {{job.budUnits}} {{job.unit}}</p>
+						<p>Budget Yards: {{job.budYds}}</p>
+						<br>
+					</li>
+				</ul>
+				<div>
+					
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+
+				<!-- Sidebar Content -->
+				Search: <input ng-model="query">
+				<br>
+				Sort by:
+				<select ng-model="orderProp">
+					<option value="jobName">Job Name</option>
+					<option value="-totalPrice">Total Price</option>
+					<option value="-billingDate">Invoice Date (Newest First)</option>
+					<option value="-budUnits">Units</option>
+				</select>
+				<br>
+				<br>
+				<h5>Showing:</h5> 
+				<p>{{(jobs|filter:myFilter|filter:query).length}} Jobs</p>
+				<div>
+					<h5>Summed Total Price:</h5>
+					<div ng-if="myFilter == null && query == null">
+						<p>${{getSumTotalPrice(jobs)}}</p>
+					</div>
+					<div ng-if="myFilter != null && query == null">
+						<p><p>${{getSumTotalPrice((jobs|filter:myFilter))}}</p></p>
+					</div>
+					<div ng-if="query != null">
+						<p>${{getSumTotalPrice((jobs|filter:myFilter|filter:query))}}</p>	
+					</div>
+				</div>
+				<div>
+					<h5>Summed Budget Hours:</h5>
+					<div ng-if="myFilter == null && query == null">
+						<p>{{getSumBudgetHrs(jobs)}}</p>
+					</div>
+					<div ng-if="myFilter != null && query == null">
+						<p><p>{{getSumBudgetHrs((jobs|filter:myFilter))}}</p></p>
+					</div>
+					<div ng-if="query != null">
+						<p>{{getSumBudgetHrs((jobs|filter:myFilter|filter:query))}}</p>	
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

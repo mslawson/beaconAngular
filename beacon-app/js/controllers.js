@@ -28,4 +28,19 @@ jobcostControllers.controller('JobListCtrl', ['$scope', '$http',
 		}
 }]);
 
+jobcostControllers.controller('JobDetailCtrl', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+    $http.get('jobs/' + $routeParams.jobId + '.json').success(function(data) {
+      $scope.job = data;
+    });
+
+    $scope.getPricePerUnit = function(job){
+    	var pricePer = 0;
+    	pricePer = job.totalPrice / job.budUnits;
+    	return job.pricePer = pricePer;
+    }
+}]);
+
+
+
 

@@ -30,7 +30,8 @@
 			"budUnits": 13,
 			"unit": "LF",
 			"budYds": 7.5,
-			"totalPrice": 300
+			"totalPrice": 300,
+			"id": "BOA-Raytown"
 	},
 	{
 			"jobName": "Village at Lionsgate",
@@ -52,6 +53,7 @@
 			"budUnits": 132,
 			"unit": "LF",
 			"budYds": 5.5,
+			"pavThickness": 8,
 			"totalPrice": 500
 	}
 ]

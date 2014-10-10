@@ -1,15 +1,71 @@
 /* app css stylesheet */
 
 /*General*/
-
-.title-bar h2{
-	color: darkblue;
-	margin-left: 50px;
+.title-bar{
+	border-bottom: 1px solid gray;
 }
+
 .title-bar h4{
 	color: darkblue;
-	margin-left: 50px;
 }
+
+.title-bar h1{
+	display: inline-block;
+}
+
+.job-nav{
+	display: inline-block;
+	float: right;
+	margin-top: 18px;
+}
+
+h1 {
+  color: darkblue;
+}
+
+body {
+	padding-top: 15px;
+	margin-left: 35px;
+	margin-right: 35px;
+}
+
+/*Job Details*/
+#jName {
+	display: inline-block;
+}
+
+#jobCode {
+	display: inline-block;
+
+}
+
+/*Tables*/
+table, th, td {
+  border: 1px solid black;
+}
+th {
+	text-align: center;
+}
+
+th, td {
+	padding: 10px;
+	text-size: 24px;
+}
+
+/*Main Info*/
+.main-info h4 {
+	display: inline-block;
+}
+
+.main-info h3 {
+	padding-top: 30px;
+	color: darkblue;
+}
+
+#billDate {
+	float: right;
+}
+
 
 /*Navigation*/
 
@@ -23,15 +79,31 @@
 
 }
 
-.main-nav li{
-	float: left;
-	display: block;
-	margin: 5px 10px;
-	/*color:gray;*/
-	
+.job-nav ul{
+	/*background-color: lightblue;*/
+	list-style: none;
+	overflow: hidden;
+	float: right;
 }
 
-.main-nav span{
+.job-nav span,
+.job-nav li{
+	color: darkblue;
+	background-color: lightblue;
+	padding: 10px 10px;
+	margin: 0;
+	display: block;
+	text-decoration: none;
+	border: 2px solid darkgray;
+	border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		text-transform: uppercase;
+}
+
+
+.main-nav span,
+.main-nav li {
 	float: left;
 	display: block;
 	margin: 5px 10px;
@@ -52,10 +124,13 @@
 		text-transform: uppercase;
 }
 
-.main-nav span {
+.main-nav span,
+.main-nav li{
 	color: darkblue;
 	padding: 20px 20px;
+	width: 120px;
 	display: block;
+	margin: 5px 20px;
 	text-decoration: none;
 	border: 2px solid darkgray;
 	border-radius: 15px;
@@ -63,6 +138,7 @@
 		-moz-border-radius: 15px;
 		text-transform: uppercase;
 }
+
 
 
 .main-nav span:hover, span.active {
@@ -78,6 +154,30 @@
 		text-transform: uppercase;
 }
 
+.main-nav li:hover, li.active {
+	background-color: gray;
+	color: lightblue;
+	padding: 20px 20px;
+	display: block;
+	text-decoration: none;
+	border: 2px solid darkblue;
+	border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		text-transform: uppercase;
+}
+.job-nav span:hover{
+	background-color: gray;
+	color: lightblue;
+	/*padding: 20px 20px;*/
+	display: block;
+	text-decoration: none;
+	border: 2px solid darkblue;
+	border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		text-transform: uppercase;
+}
 /*Job Results*/
 
 #job-results ul{

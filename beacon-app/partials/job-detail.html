@@ -1,0 +1,87 @@
+
+<div>
+  <div class="title-bar">
+    <h1>Beacon Contracting</h1>
+    <div class="job-nav">
+      <ul>
+        <a href="#/jobs"><span ng-click="myFilter = null">Back to All Jobs</span></a>
+      </ul>
+    </div>
+  </div>
+  
+<div class="main-info">
+  <h3 id="jName">{{job.jobName}}&nbsp&nbsp-</h3><h3 id="jobCode">&nbsp&nbspCode: {{job.jobCode}}</h3>
+  <br>
+  <h4>File Number: &nbsp{{job.fileNumber}}</h4>
+  <h4 id="billDate">Billing Date: {{job.billingDate}}</h4> 
+  <br> 
+  <h4>GC or Client:</h4> 
+</div>
+<br>
+<table style="width:100%">
+<!--   <caption>Detailed Job Info</caption> -->
+  <col style="width:10%">
+  <col style="width:10%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <col style="width:8%">
+  <tr>
+    <th>Total</th>
+    <th>Price Per</th>
+    <th colspan="2">Yards</th>
+    <th colspan="2">{{job.unit}}</th>
+    <th colspan="2">Hours</th>
+    <th colspan="2">{{job.unit}} per Hour</th>
+    <th colspan="2">Yards per Hour</th>
+  </tr>
+  <tr>
+    <th>Price</th>
+    <th>{{job.unit}}</th>
+    <th>Budgeted</th>
+    <th>Actual</th>
+    <th>Budgeted</th>
+    <th>Actual</th>
+    <th>Budgeted</th>
+    <th>Actual</th>
+    <th>Budgeted</th>
+    <th>Actual</th>
+    <th>Budgeted</th>
+    <th>Actual</th>
+  </tr>
+  
+  <tr>
+    <td>{{job.totalPrice | currency : symbol}}</td>
+    <td>{{getPricePerUnit(job) | currency : symbol}}</td>
+    <td>{{job.budYds}}</td>
+    <td>{{job.actYds}}</td> <!-- Add a function that highlights (by adding a class) if the acutal is less than budgeted -->
+    <td>200</td>
+    <td>200</td>
+    <td>140</td>
+    <td>120</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+  </tr> 
+</table>
+<br>
+<h4>Notes about the job:</h4>
+
+Miscellaneous notes about the job at BOA.
+
+<!-- "fileNumber": "472-11-1816",
+      "billingDate": "08/10/2012",
+      "jobCode": "5-50",
+      "budgetHrs": 80,
+      "budUnits": 13,
+      "unit": "LF",
+      "budYds": 7.5,
+      "totalPrice": 300,
+      "id": "BOA-Raytown" -->

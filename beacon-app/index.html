@@ -8,39 +8,41 @@
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/controllers.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<title>Beacon Jobs</title>
 	</head>
 	<body>
-		
+
 		<div ng-view></div>
 
 	<!-- Script for selected nav button -->
 	<script type="text/javascript">
 
-		var make_button_active = function()
-		{
-		  //Get item siblings
-		  var siblings =($(this).siblings());
+		// var make_button_active = function()
+		// {
+		//   //Get item siblings
+		//   var siblings =($(this).siblings());
 
-		  //Remove active class on all buttons
-		  siblings.each(function (index)
-		    {
-		      $(this).removeClass('active');
-		    }
-		  )
+		//   //Remove active class on all buttons
+		//   siblings.each(function (index)
+		//     {
+		//       $(this).removeClass('active');
+		//     }
+		//   );
 
 
-		  //Add the clicked button class
-		  $(this).addClass('active');
-		}
+		//   //Add the clicked button class
+		//   $(this).addClass('active');
+		// }
 
 		//Attach events to menu
-		$(document).ready(
-		  function()
-		  {
-		    $(".main-nav span").click(make_button_active);
-		  }  
-		)
+		$(document).ready(function(){
+			$(".tab").on("click",function() {
+    		$(".tab").removeClass("active");
+    		// $(".tab").addClass("active"); // instead of this do the below 
+    		$(this).addClass("active");  
+			}); 
+		});
 
 		</script>
 	</body>

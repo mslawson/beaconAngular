@@ -13,9 +13,9 @@ jobcostApp.config(['$routeProvider',
         templateUrl: 'partials/job-list.html',
         controller: 'JobListCtrl'
       }).
-      when('/jobs/:jobName', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/jobs/:jobId', {
+        templateUrl: 'partials/job-detail.html',
+        controller: 'JobDetailCtrl'
       }).
       otherwise({
         redirectTo: '/jobs'

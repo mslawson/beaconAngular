@@ -14,33 +14,29 @@
 		</ul>
 		</section>
 	</div>
-	<div id="job-results" class="containter-fluid">
-		<div class="row">
-			<div class="col-md-9">
-				<!-- Body Content -->
-				<ul id="triple">
-					<li ng-repeat="job in jobs | filter: myFilter | filter:query | orderBy:orderProp">
-						<a href="#/jobs/{{job.id}}"><h4>{{job.jobName}}</h4></a>
-						<p><em>Job Code: {{job.jobCode}}</em></p>
-						<!-- <p>File Number: {{job.fileNumber}}</p> -->
-						<p>Invoice Date: {{job.billingDate}}</p>
-						<p>Total Price: ${{job.totalPrice}}</p>
-						<div ng-if="job.pavThickness!=null"><p>Paving Thickness: {{job.pavThickness}}"</p></div>
-						<p>Budget Hours: {{job.budgetHrs}} hrs</p>
-						<p>Budget Units: {{job.budUnits}} {{job.unit}}</p>
-						<p>Budget Yards: {{job.budYds}}</p>
-						
-						<br>
-					</li>
-				</ul>
-				<div>
-
-				</div>
+	<section> <!-- Body Content -->
+		<div id="job-results" class="containter-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					<ul id="triple">
+						<li ng-repeat="job in jobs | filter: myFilter | filter:query | orderBy:orderProp">
+							<a href="#/jobs/{{job.id}}"><h4>{{job.jobName}}</h4></a>
+							<p><em>Job Code: {{job.jobCode}}</em></p>
+							<!-- <p>File Number: {{job.fileNumber}}</p> -->
+							<p>Invoice Date: {{job.billingDate}}</p>
+							<p>Total Price: ${{job.totalPrice}}</p>
+							<div ng-if="job.pavThickness!=null"><p>Paving Thickness: {{job.pavThickness}}"</p></div>
+							<p>Budget Hours: {{job.budgetHrs}} hrs</p>
+							<p>Budget Units: {{job.budUnits}} {{job.unit}}</p>
+							<p>Budget Yards: {{job.budYds}}</p>
+							<br>
+						</li>
+					</ul>
+				<div>	
 			</div>
-
+		</div>
+	<section> <!-- Sidebar Content -->
 			<div class="col-md-3">
-
-				<!-- Sidebar Content -->
 				<br>
 				Search: <input ng-model="query">
 				<br>
@@ -92,8 +88,33 @@
 							<p>{{getBudYardsPerHr((jobs|filter:myFilter|filter:query)) |number:3}}</p>	
 						</div>
 					</div>
+					<br>
+					<div>
+						<form name"jobFrom">
+							<h3>New Job</h3>
+							<blockquote>
+								<b>Job Code: {{job.jobCode}}</b>
+								<cite>Budget Yards: {{job.budYds}}</cite>
+							</blockquote>
+							<h3>Add a Job:</h3><br>
+							<label>Job Code:</label>
+							<select ng-model="job.jobCode">
+								<option value="5-50">5-50</option>
+								<option value="5-60">5-60</option>
+								<option value="5-70">5-70</option>
+								<option value="40">40</option>
+							</select>
+							<br>
+							<label >Budget Yds:</label>
+							<input type="text" ng-model="job.budYds">
+							<label>Budget Yards:</label>
+							<input type="range" min="0" max="500" onchange="rangevalue.value=value" />
+							<output id="rangevalue"></output>
+							<input type="submit" value="Submit">
+						</form>
+					</div>
 
-				</section>
+		</section>
 			</div>
 
 		</div>

@@ -12,11 +12,13 @@
 		<title>Beacon Jobs</title>
 	</head>
 	<body>
-
+		<div class="title-bar">
+			<h1><a href="#"><span ng-click="myFilter = null">Beacon Contracting</span></a></h1>
+		</div>
 		<div ng-view></div>
 
-	<!-- Script for selected nav button -->
-	<script type="text/javascript">
+		<!-- Script for selected nav button -->
+		<script type="text/javascript">
 
 		// var make_button_active = function()
 		// {
@@ -38,10 +40,10 @@
 		//Attach events to menu
 		$(document).ready(function(){
 			$(".tab").on("click",function() {
-    		$(".tab").removeClass("active");
+				$(".tab").removeClass("active");
     		// $(".tab").addClass("active"); // instead of this do the below 
     		$(this).addClass("active");  
-			}); 
+    	}); 
 		});
 
 		</script>

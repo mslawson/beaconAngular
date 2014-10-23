@@ -1,10 +1,8 @@
 <div ng-controller="PanelController as panel">
-	<div class="title-bar">
-		<h1>Beacon Contracting</h1>
-	</div>
+	
 		<h4>Job Costing</h4>
 	<div class="main-nav">
-		<section n>
+		<section>
 		<ul class="nav nav-pills">
 			<li ng-click="panel.selectTab(1); myFilter=null" ng-class="{ active:panel.isSelected(1) }"> All <br>Jobs</li>
 			<li ng-click="panel.selectTab(2); myFilter={jobCode:'40'}" ng-class="{ active:panel.isSelected(2) }"> 40 <br>Slabs</li>
@@ -49,6 +47,7 @@
 				</select>
 				<br>
 				<br>
+				<!-- Side info -->
 				<section class="side-info">
 					<h5>Showing:</h5> 
 					<p>{{(jobs|filter:myFilter|filter:query).length}} Jobs</p><br>
@@ -58,10 +57,10 @@
 							<p>{{getSumTotalPrice(jobs) | currency}}</p>
 						</div>
 						<div ng-if="myFilter != null && query == null">
-							<p><p>${{getSumTotalPrice((jobs|filter:myFilter)) | currency}}</p></p>
+							<p><p>{{getSumTotalPrice((jobs|filter:myFilter)) | currency}}</p></p>
 						</div>
 						<div ng-if="query != null">
-							<p>${{getSumTotalPrice((jobs|filter:myFilter|filter:query)) | currency}}</p>	
+							<p>{{getSumTotalPrice((jobs|filter:myFilter|filter:query)) | currency}}</p>	
 						</div>
 					</div>
 					<div> <!-- Budgeted Hours -->
@@ -89,16 +88,20 @@
 						</div>
 					</div>
 					<br>
+					<!-- New Job Form -->
 					<div>
-						<form name"jobFrom">
-							<h3>New Job</h3>
-							<blockquote>
-								<b>Job Code: {{job.jobCode}}</b>
-								<cite>Budget Yards: {{job.budYds}}</cite>
-							</blockquote>
+						<form name="jobForm" ng-controller="JobFormController as jobFormCtrl" 
+																ng-submit="jobForm.$valid && jobFormCtrl.addJob(newjob)" novalidate>
+							<h3>New Job</h3><br>
+							<p><em>Job Code: {{jobFormCtrl.newjob.jobCode}}</em></p>
+							<br>
+							<p>Budget Yards: {{jobFormCtrl.newjob.budYds}}</p>
+							<br>
+							<p>Email: {{jobFormCtrl.newjob.email}}</p>
+							<br>
 							<h3>Add a Job:</h3><br>
 							<label>Job Code:</label>
-							<select ng-model="job.jobCode">
+							<select ng-model="jobFormCtrl.newjob.jobCode" required>
 								<option value="5-50">5-50</option>
 								<option value="5-60">5-60</option>
 								<option value="5-70">5-70</option>
@@ -106,11 +109,12 @@
 							</select>
 							<br>
 							<label >Budget Yds:</label>
-							<input type="text" ng-model="job.budYds">
-							<label>Budget Yards:</label>
-							<input type="range" min="0" max="500" onchange="rangevalue.value=value" />
-							<output id="rangevalue"></output>
+							<input type="number" ng-model="jobFormCtrl.newjob.budYds" required>
+						 	<label >Email:</label>
+						 	<input type="email" ng-model="jobFormCtrl.newjob.email" required>
 							<input type="submit" value="Submit">
+							<br>
+							<div> jobForm.$valid = {{jobForm.$valid}}</div> <!-- Just to show if form is valid or not -->
 						</form>
 					</div>
 

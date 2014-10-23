@@ -1,13 +1,4 @@
 
-<div>
-  <div class="title-bar">
-    <h1>Beacon Contracting</h1>
-    <div class="job-nav">
-      <ul>
-        <a href="#/jobs"><span ng-click="myFilter = null">Back to All Jobs</span></a>
-      </ul>
-    </div>
-  </div>
   
 <div class="main-info">
   <h3 id="jName">{{job.jobName}}&nbsp&nbsp-</h3><h3 id="jobCode">&nbsp&nbspCode: {{job.jobCode}}</h3>
@@ -15,7 +6,8 @@
   <h4>File Number: &nbsp{{job.fileNumber}}</h4>
   <h4 id="billDate">Billing Date: {{job.billingDate}}</h4> 
   <br> 
-  <h4>GC or Client:</h4> 
+  <h4>GC or Client:</h4> <br>
+  
 </div>
 <br>
 <table style="width:100%">
@@ -71,6 +63,9 @@
     <td>0</td>
   </tr> 
 </table>
+<br>
+<a href="#/jobs/{{job.id}}">Edit Job Info</a><br>
+
 <br>
 <h4>Notes about the job:</h4>
 

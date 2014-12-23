@@ -39,6 +39,14 @@ body {
 
 }
 
+.positive {
+	background-color: #a3e6a1;
+}
+
+.negative {
+	background-color: #f55363;
+}
+
 /*Tables*/
 table, th, td {
   border: 1px solid black;
@@ -72,7 +80,7 @@ th, td {
 }
 
 .ng-valid.ng-dirty {
-	border-color: #78FA89;
+	border-color: #78FA89; 
 }
 
 

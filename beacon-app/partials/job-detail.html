@@ -6,7 +6,7 @@
   <h4>File Number: &nbsp{{job.fileNumber}}</h4>
   <h4 id="billDate">Billing Date: {{job.billingDate}}</h4> 
   <br> 
-  <h4>GC or Client:</h4> <br>
+  <h4>GC or Client: &nbsp{{job.gc}}</h4> <br>
   
 </div>
 <br>
@@ -27,9 +27,9 @@
   <tr>
     <th>Total</th>
     <th>Price Per</th>
-    <th colspan="2">Yards</th>
-    <th colspan="2">{{job.unit}}</th>
-    <th colspan="2">Hours</th>
+    <th colspan="3">Yards</th>
+    <th colspan="3">{{job.unit}}</th>
+    <th colspan="3">Hours</th>
     <th colspan="2">{{job.unit}} per Hour</th>
     <th colspan="2">Yards per Hour</th>
   </tr>
@@ -38,10 +38,13 @@
     <th>{{job.unit}}</th>
     <th>Budgeted</th>
     <th>Actual</th>
+    <th>Difference</th>
     <th>Budgeted</th>
     <th>Actual</th>
+    <th>Difference</th>
     <th>Budgeted</th>
     <th>Actual</th>
+    <th>Difference</th>
     <th>Budgeted</th>
     <th>Actual</th>
     <th>Budgeted</th>
@@ -53,10 +56,13 @@
     <td>{{getPricePerUnit(job) | currency : symbol}}</td>
     <td>{{job.budYds}}</td>
     <td>{{job.actYds}}</td> <!-- Add a function that highlights (by adding a class) if the acutal is less than budgeted -->
-    <td>200</td>
-    <td>200</td>
+    <td ng-class='{positive: job.actYds < job.budYds, negative: job.actYds > job.budYds}'>{{job.budYds - job.actYds}}</td>
+    <td>{{job.budUnits}}</td>
+    <td>{{job.actUnits}}</td>
+    <td ng-class='{positive: job.actUnits < job.budUnits, negative: job.actUnits > job.budUnits}'>{{job.budUnits - job.actUnits}}</td>
     <td>140</td>
     <td>120</td>
+    <td>20</td>
     <td>0</td>
     <td>0</td>
     <td>{{getBudYardsPerHr(job) | number:2}}</td>

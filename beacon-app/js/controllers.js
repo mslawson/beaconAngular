@@ -49,6 +49,16 @@ jobcostApp.controller('JobListCtrl', ['$scope', '$http',
 			return jobs.summedBudgetHrs = summedBudgetHrs;
 		};
 
+    $scope.getAvgBudgetHrs = function(jobs){
+      var avgBudgetHrs = 0;
+      var summedBudgetHrs = 0;
+      jobs.forEach(function (job){
+        summedBudgetHrs = summedBudgetHrs + job.budgetHrs;
+      });
+      avgBudgetHrs = summedBudgetHrs / jobs.length;
+      return jobs.avgBudgetHrs = avgBudgetHrs;
+    };
+
     $scope.getBudYardsPerHr = function(jobs){
       var budYardsHr = 0;
       var jobCount = 0;

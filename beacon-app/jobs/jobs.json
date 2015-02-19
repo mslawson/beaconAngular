@@ -1,6 +1,7 @@
 [
 	{
 			"jobName": "Village at Lionsgate",
+			"client": "Harmon Construction",
 			"fileNumber": "414-10-1600",
 			"billingDate": "08/10/2013",
 			"jobCode": "5-50",
@@ -12,6 +13,7 @@
 	},
 	{
 			"jobName": "Creekwood Commons",
+			"client": "Harmon Construction",
 			"fileNumber": "441-10-1633",
 			"billingDate": "08/10/2013",
 			"jobCode": "5-50",
@@ -24,6 +26,7 @@
 	},
 	{
 			"jobName": "BOA Raytown",
+			"client": "Harmon Construction",
 			"fileNumber": "472-11-1816",
 			"billingDate": "08/10/2012",
 			"jobCode": "5-50",
@@ -36,6 +39,7 @@
 	},
 	{
 			"jobName": "Village at Lionsgate",
+			"client": "CBRE",
 			"fileNumber": "414-10-1600",
 			"billingDate": "08/10/2011",
 			"jobCode": "5-60",
@@ -47,7 +51,8 @@
 	},
 	{
 			"jobName": "Creekwood Commons",
-			"fileNumber": "414-10-1633",
+			"client": "Miller Stauch",
+			"fileNumber": "414-10-2324",
 			"billingDate": "08/10/2010",
 			"jobCode": "5-70",
 			"budgetHrs": 80,

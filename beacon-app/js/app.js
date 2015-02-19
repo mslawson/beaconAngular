@@ -3,7 +3,8 @@
 /* App Module */
 var jobcostApp = angular.module('jobcostApp', [
 'ngRoute',
-'jobcostControllers'
+'jobcostControllers',
+'firebase'
 ]);
 
 jobcostApp.config(['$routeProvider',

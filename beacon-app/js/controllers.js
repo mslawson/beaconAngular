@@ -33,6 +33,15 @@ jobcostApp.controller('JobListCtrl', ['$scope', '$http',
 
     $scope.orderProp = 'jobName';
 
+    $scope.byRange = function (fieldName, minValue, maxValue) {
+      if (minValue === undefined) minValue = Number.MIN_VALUE;
+      if (maxValue === undefined) maxValue = Number.MAX_VALUE;
+
+      return function predicateFunc(item) {
+        return minValue <= item[fieldName] && item[fieldName] <= maxValue;
+      };
+    };
+
     $scope.getSumTotalPrice = function(jobs){
 			var summedTotalPrices = 0;
 			jobs.forEach(function (job){
@@ -40,6 +49,16 @@ jobcostApp.controller('JobListCtrl', ['$scope', '$http',
 			});
 			return jobs.summedTotalPrices = summedTotalPrices;
 		};
+
+    $scope.getAvgPrice = function(jobs){
+      var avgPrice = 0;
+      var summedTotalPrices = 0;
+      jobs.forEach(function (job){
+        summedTotalPrices = summedTotalPrices + job.totalPrice;
+      });
+      avgPrice = summedTotalPrices / jobs.length;
+      return jobs.avgPrice = avgPrice;
+    };
 
 		$scope.getSumBudgetHrs = function(jobs){
 			var summedBudgetHrs = 0;

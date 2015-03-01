@@ -1,0 +1,25 @@
+<div>
+    
+   <div ng-repeat="formElement in formElements | filter:byRange('age', filterModelMin.age, filterModelMax.age)">
+      
+      <table border="1" style="width:200px">
+       <tr>
+           <td> <div>Name : {{  formElement.name }} </div><br> </td> 
+       </tr>
+       <tr>
+           <td> <div>Age : {{ formElement.age }}</div><br> </td>
+       </tr>
+       <tr>
+           <td> <div>Country : {{ formElement.country }}</div><br> </td>
+        </tr>
+        <tr>
+            <td> <div>Gender : {{ formElement.gender }}</div><br> 
+            <input type="button" value="Delete" ng-click="deleteBox()">
+            </td>
+            <!--<input type="hidden" ng-model="newFormElement.id" />-->
+        
+        </tr>
+       
+    </table>
+        </div>
+</div>

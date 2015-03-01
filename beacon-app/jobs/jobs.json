@@ -9,7 +9,7 @@
 			"budUnits": 132,
 			"unit": "LF",
 			"budYds": 7.5,
-			"totalPrice": 4071
+			"totalPrice": 4000
 	},
 	{
 			"jobName": "Creekwood Commons",
@@ -17,11 +17,14 @@
 			"fileNumber": "441-10-1633",
 			"billingDate": "08/10/2013",
 			"jobCode": "5-50",
-			"budgetHrs": 80,
-			"budUnits": 45,
+			"budgetHrs": 130,
+			"actHrs": 125,
+			"budUnits": 450,
+			"actUnits": 440,
 			"unit": "LF",
-			"budYds": 2.5,
-			"totalPrice": 100,
+			"budYds": 25,
+			"actYds": 22,
+			"totalPrice": 12600,
 			"id": "Creekwood-Commons"
 	},
 	{
@@ -34,7 +37,7 @@
 			"budUnits": 13,
 			"unit": "LF",
 			"budYds": 7.5,
-			"totalPrice": 300,
+			"totalPrice": 8000,
 			"id": "BOA-Raytown"
 	},
 	{

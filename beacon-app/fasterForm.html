@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+    .myform {
+border: solid 1px #000000;
+} 
+</style>
+<div class="bs-example">
+<form>
+    <div> 
+        <div class="form-group">
+        <label for="inputName">Name</label>
+        <input type="text" name="name" placeholder="Your Name" ng-model="formModel.name" /><br><br>
+    </div>
+    <div class="form-group">
+        <label for="inputAge">Age</label>
+        <input type="number" name="age" placeholder="Your Age" ng-model="formModel.age" /><br><br>
+    </div>
+        <div class="form-group">
+            <label for="inputCountry">Country</label>
+        <select id="country" ng-model="formModel.country">
+     <option value="None">Select</option>
+      <option value="India">India</option>
+      <option value="Singapore">Singapore</option>
+      <option value="London">London</option>
+    </select>    </div>
+    <div class="form-group">
+        <label for="inputPlace">Gender</label>
+
+    			<input type="radio" name="gender" ng-model="formModel.gender" value="male"/>Male<br> 
+    			<input type="radio" name="gender" ng-model="formModel.gender" value="female"/>Female<br><br><br>
+    </div>
+     
+        <button ng-click="onClick()" class="btn btn-primary">Submit</button><br><br><br><br>
+    <!--Filter Search starts-->
+     <strong>Filter search by :</strong>
+     Male <input type="radio" name="filterGender" ng-model="filterModel.gender" value="male" />
+     Female<input type="radio" name="filterGender" ng-model="filterModel.gender" value="female" /><br><br>
+     
+     Age Range <input type="number" name="filterAgeMin" ng-model="filterModelMin.age" /> to <input type="number" name="filterAgeMax" ng-model="filterModelMax.age" /><br><br>
+    Place <input type="text" name="filterPlace" ng-model="filterModel.place"  />
+      
+    <!--Filter Search Ends-->
+    </div>
+    </form>
+</div>

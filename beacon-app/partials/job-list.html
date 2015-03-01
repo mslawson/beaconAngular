@@ -1,3 +1,5 @@
+<html  ng-app="fasterApp" lang="en">
+
 <div ng-controller="PanelController as panel">
 	
 		<h4>Job Costing</h4>
@@ -16,18 +18,25 @@
 		<div id="job-results" class="containter-fluid">
 			<div class="row">
 				<div class="col-md-9">
+
+
+
+
 					<ul id="triple">
-						<li ng-repeat="job in jobs | filter: myFilter | filter:query | orderBy:orderProp">
+						<li ng-repeat="job in jobs | filter: myFilter | filter:query | filter:byRange('budUnits', filterModelMin.budUnits, filterModelMax.budUnits) | orderBy:orderProp">
 							<a href="#/jobs/{{job.id}}"><h4>{{job.jobName}}</h4></a>
 							<h5>Client: {{job.client}}</h5>
 							<p><em>Job Code: {{job.jobCode}}</em></p>
 							<!-- <p>File Number: {{job.fileNumber}}</p> -->
 							<p>Invoice Date: {{job.billingDate}}</p>
-							<p>Total Price: ${{job.totalPrice}}</p>
+							<p>Total Price: {{job.totalPrice | currency}}</p>
 							<div ng-if="job.pavThickness!=null"><p>Paving Thickness: {{job.pavThickness}}"</p></div>
 							<p>Budget Hours: {{job.budgetHrs}} hrs</p>
 							<p>Budget Units: {{job.budUnits}} {{job.unit}}</p>
+							<p>Actual Units: {{job.actUnits}} {{job.unit}}</p>
 							<p>Budget Yards: {{job.budYds}}</p>
+							<p>Actual Yards: {{job.actYds}}</p>
+							<p>Actual {{job.unit}}/Hr: {{job.actYds/job.actHrs | number:2}}</p>
 							<br>
 						</li>
 					</ul>
@@ -47,12 +56,39 @@
 					<option value="-budUnits">Units</option>
 				</select>
 				<br>
+				<div>
+					<!--Filter Search starts-->
+					<br>
+			    <strong>Filter search by:</strong>
+			    Quantity
+			    <!-- Male <input type="radio" name="filterGender" ng-model="filterModel.gender" value="male" />
+			    Female<input type="radio" name="filterGender" ng-model="filterModel.gender" value="female" /><br><br> -->
+			    <br>
+			    Min: <input type="number" name="filterBudUnitsMin" ng-model="filterModelMin.budUnits" /> 
+			    <br>
+			    to Max:<input type="number" name="filterBudUnitsMax" ng-model="filterModelMax.budUnits" /><br><br>
+			    <!-- Place <input type="text" name="filterPlace" ng-model="filterModel.place"  /> -->
+			      
+			    <!--Filter Search Ends-->
+    		</div>
 				<br>
-				<!-- Production info -->
+				<!-- Avg Production info -->
 				<section class="side-info">
-					<h3>Production Info:</h3><br>
+					<h3>Avg Production Info:</h3><br>
 					<h5>Showing:</h5> 
 					<p>{{(jobs|filter:myFilter|filter:query).length}} Jobs</p><br>
+					<div> <!-- Avg Prices -->
+						<h5>Average Total Price:</h5>
+						<div ng-if="myFilter == null && query == null">
+							<p>{{getAvgPrice(jobs) | currency}}</p>
+						</div>
+						<div ng-if="myFilter != null && query == null">
+							<p><p>{{getAvgPrice((jobs|filter:myFilter)) | currency}}</p></p>
+						</div>
+						<div ng-if="query != null">
+							<p>{{getAvgPrice((jobs|filter:myFilter|filter:query)) | currency}}</p>	
+						</div>
+					</div>
 					<div> <!-- Total Prices -->
 						<h5>Summed Total Price:</h5>
 						<div ng-if="myFilter == null && query == null">
@@ -80,25 +116,25 @@
 					<div> <!-- Average Hours -->
 						<h5>Average Budget Hours:</h5>
 						<div ng-if="myFilter == null && query == null">
-							<p>{{getAvgBudgetHrs(jobs)}}</p>
+							<p>{{getAvgBudgetHrs(jobs)|number:2}}</p>
 						</div>
 						<div ng-if="myFilter != null && query == null">
-							<p><p>{{getAvgBudgetHrs((jobs|filter:myFilter))}}</p></p>
+							<p><p>{{getAvgBudgetHrs((jobs|filter:myFilter))|number:2}}</p></p>
 						</div>
 						<div ng-if="query != null">
-							<p>{{getAvgBudgetHrs((jobs|filter:myFilter|filter:query))}}</p>	
+							<p>{{getAvgBudgetHrs((jobs|filter:myFilter|filter:query|number:2))}}</p>	
 						</div>
 					</div>
 					<div> <!-- Budget Yds/Hr -->
 						<h5>Budgeted Yards / Hour:</h5>
 						<div ng-if="myFilter == null && query == null">
-							<p>{{getBudYardsPerHr(jobs) | number:3}}</p>
+							<p>{{getBudYardsPerHr(jobs) | number:2}}</p>
 						</div>
 						<div ng-if="myFilter != null && query == null">
-							<p><p>{{getBudYardsPerHr((jobs|filter:myFilter)) | number:3}}</p></p>
+							<p><p>{{getBudYardsPerHr((jobs|filter:myFilter)) | number:2}}</p></p>
 						</div>
 						<div ng-if="query != null">
-							<p>{{getBudYardsPerHr((jobs|filter:myFilter|filter:query)) |number:3}}</p>	
+							<p>{{getBudYardsPerHr((jobs|filter:myFilter|filter:query)) |number:2}}</p>	
 						</div>
 					</div>
 					<br>
